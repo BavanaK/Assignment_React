@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>XOX Game</title>
+    <style>
+        .board {
+            display: flex;
+            flex-wrap: wrap;
+            width: 240px;
+        }
+        .cell {
+            box-sizing: border-box;
+            width: 80px;
+            height: 80px;
+            border: 1px solid #000;
+            font-size: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        .cell:hover {
+            background-color: #eee;
+        }
+    </style>
+</head>
+<body>
+    <h1>XOX Game</h1>
+    <div class="board">
+        <div class="cell" onclick="makeMove(0)"></div>
+        <div class="cell" onclick="makeMove(1)"></div>
+        <div class="cell" onclick="makeMove(2)"></div>
+        <div class="cell" onclick="makeMove(3)"></div>
+        <div class="cell" onclick="makeMove(4)"></div>
+        <div class="cell" onclick="makeMove(5)"></div>
+        <div class="cell" onclick="makeMove(6)"></div>
+        <div class="cell" onclick="makeMove(7)"></div>
+        <div class="cell" onclick="makeMove(8)"></div>
+    </div>
+    <script>
+        let currentPlayer = 'X';
+        const cells = document.querySelectorAll('.cell');
+        function makeMove(cellIndex) {
+            if (!cells[cellIndex].textContent) {
+                cells[cellIndex].textContent = currentPlayer;
+                cells[cellIndex].classList.add(currentPlayer);
+                currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+            }
+        }
+    </script>
+</body>
+</html>
